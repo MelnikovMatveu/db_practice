@@ -5,5 +5,6 @@
 ## task 3
 ```SELECT name, rating FROM pizzeria WHERE rating BETWEEN 3 AND 5
 ORDER BY rating ASC;```
-![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/8e70c45a-b7c0-4920-8156-5a39a352f3d7)
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/81464fae-e3a5-4e60-9596-a2e63c32d425)
+
 
