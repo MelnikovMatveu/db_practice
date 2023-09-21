@@ -39,3 +39,29 @@ WHERE "visit_date" BETWEEN '2022-01-01' AND '2022-01-07';
 
 
 ## task 6
+
+```
+SELECT name FROM person WHERE person.id IN
+(SELECT "person_id" FROM "person_order" WHERE "menu_id" = 1 OR "menu_id" = 3 OR "menu_id" = 8);
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/5010610c-c1a9-433e-9bb0-30f19153133a)
+
+
+## task 7
+
+```
+SELECT EXISTS
+(SELECT * FROM person WHERE name = 'Dmitriy')
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/d0e50be3-81ae-4b87-aaf4-33aa1743a068)
+
+
+```
+SELECT EXISTS
+(SELECT * FROM person WHERE name = 'ana')
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/5253096a-4623-42b4-ac54-d9a9d1c21916)
+
