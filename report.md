@@ -27,3 +27,15 @@ ORDER BY rating ASC;
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/0c0e6c25-6ad7-41c8-971c-52eabe2b6bcf)
 
 
+
+## task 5
+
+```
+SELECT "person_id" FROM "person_visits"
+WHERE "visit_date" BETWEEN '2022-01-01' AND '2022-01-07';
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/958951b4-f8ba-4568-bb0e-9ea60367235e)
+
+
+## task 6
