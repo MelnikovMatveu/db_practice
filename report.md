@@ -65,3 +65,53 @@ SELECT EXISTS
 
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/5253096a-4623-42b4-ac54-d9a9d1c21916)
 
+
+
+
+
+
+##Задание 1
+```
+SELECT name FROM person ORDER BY name
+```
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/af7d9862-b3ed-479f-b25c-f4a42966a630)
+
+
+##Задание 2
+
+```
+CREATE VIEW v_generated_dates AS
+select generate_series('2022-01-01', '2022-01-31', interval '1 day')::date
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/52f07a49-8ddc-49a8-9f84-cdf45110ff34)
+
+
+
+##Задание 3
+
+```
+SELECT * FROM v_generated_dates
+WHERE generate_series NOT IN (SELECT visit_date FROM person_visits)
+ORDER BY generate_series
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/fb2edbea-0fc3-4938-a207-5a1fa28bc3ce)
+
+
+##Задание 4
+
+```
+SELECT person_id FROM R EXCEPT ALL SELECT person_id FROM S
+UNION ALL 
+(SELECT person_id FROM S EXCEPT ALL SELECT person_id FROM R)
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/f0e09589-4b27-4373-9702-2566358119b2)
+
+
+##Задание 5
+
+```
+
+```
