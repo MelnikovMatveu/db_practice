@@ -113,5 +113,8 @@ UNION ALL
 ##Задание 5
 
 ```
+SELECT customer_id COUNT(*)
+FROM orders
+WHERE order_date BETWEEN '2023-02-01' AND '2023-05-01'  
 
 ```
