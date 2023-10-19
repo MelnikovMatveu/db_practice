@@ -10,16 +10,13 @@ HAVING COUNT(*) > 2 AND o.order_date BETWEEN '2023-07-18' AND '2023-10-18'
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/21f6dae9-e2a6-40ae-be1c-a6078c817f74)
 
 
-##Задание 4
+##Задание 2
+
 
 ```
-SELECT first_name, last_name, email FROM customers c
-JOIN orders o ON o.customer_id = c.customer_id
-JOIN products p ON p.product_id = o.product_id
-WHERE p.price > 1000 AND p.category != 'Electronics';
+
 ```
 
-![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/d2c44bee-a610-4d59-a84b-f9d59bc616dd)
 
 
 ##Задание 3
@@ -43,6 +40,20 @@ WHERE t.price_sum > (SELECT * FROM global_avg_price);
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/617302df-333e-4cf6-a73f-389ef9cefbe1)
 
 
+##Задание 4
+
+```
+SELECT first_name, last_name, email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+JOIN products p ON p.product_id = o.product_id
+WHERE p.price > 1000 AND p.category != 'Electronics';
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/d2c44bee-a610-4d59-a84b-f9d59bc616dd)
+
+
+
+
 
 ##Задание 6
 
@@ -63,3 +74,15 @@ SELECT customer_id FROM tabl WHERE difference = (SELECT MAX(difference) FROM tab
 
 
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/c2ffc9f1-8ccf-4fb0-b671-2c6afe075da3)
+
+
+
+##Задание 8
+
+```
+SELECT category, p.price,(p.price * 0.9) AS discovnt_price FROM products p
+WHERE category ='Clothing'
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/c21a0cec-38d0-419b-9548-484ae28b125b)
+
