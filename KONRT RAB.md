@@ -22,4 +22,22 @@ WHERE p.price > 1000 AND p.category != 'Electronics';
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/d2c44bee-a610-4d59-a84b-f9d59bc616dd)
 
 
-##Задание 2
+##Задание 3
+
+```
+WITH tmp_shit AS (
+	SELECT p.product_id, SUM(p.price) AS "price_sum" FROM products p
+	GROUP BY p.product_id, p.price
+),
+global_avg_price AS (
+	SELECT AVG(p.price) FROM products p
+)
+
+SELECT c.first_name, c.last_name, c.email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+JOIN tmp_shit t ON t.product_id = o.product_id
+WHERE t.price_sum > (SELECT * FROM global_avg_price);
+
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/617302df-333e-4cf6-a73f-389ef9cefbe1)
