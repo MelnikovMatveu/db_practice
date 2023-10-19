@@ -41,3 +41,25 @@ WHERE t.price_sum > (SELECT * FROM global_avg_price);
 ```
 
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/617302df-333e-4cf6-a73f-389ef9cefbe1)
+
+
+
+##Задание 6
+
+```
+WITH tab AS (
+    SELECT customer_id,
+    MAX (order_date) AS max_date,
+	MIN(order_date) AS min_date FROM orders
+    GROUP BY customer_id
+),
+
+tabl AS (
+    SELECT customer_id, max_date - min_date AS difference FROM tab
+)
+
+SELECT customer_id FROM tabl WHERE difference = (SELECT MAX(difference) FROM tabl);
+```
+
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/c2ffc9f1-8ccf-4fb0-b671-2c6afe075da3)
