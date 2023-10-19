@@ -8,3 +8,18 @@ HAVING COUNT(*) > 2 AND o.order_date BETWEEN '2023-07-18' AND '2023-10-18'
 ```
 
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/21f6dae9-e2a6-40ae-be1c-a6078c817f74)
+
+
+##Задание 4
+
+```
+SELECT first_name, last_name, email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+JOIN products p ON p.product_id = o.product_id
+WHERE p.price > 1000 AND p.category != 'Electronics';
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/d2c44bee-a610-4d59-a84b-f9d59bc616dd)
+
+
+##Задание 2
