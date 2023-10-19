@@ -14,8 +14,14 @@ HAVING COUNT(*) > 2 AND o.order_date BETWEEN '2023-07-18' AND '2023-10-18'
 
 
 ```
-
+SELECT category, FLOOR(AVG(p.price)) FROM orders o
+JOIN products p ON p.product_id = o.product_id
+WHERE p.price >= 50
+GROUP BY p.category;
 ```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/19f08cdc-f3e3-468f-9190-97bec3fe0852)
+
 
 
 
