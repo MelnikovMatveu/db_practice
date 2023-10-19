@@ -92,3 +92,15 @@ WHERE category ='Clothing'
 
 ![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/c21a0cec-38d0-419b-9548-484ae28b125b)
 
+
+
+##Задание 9
+
+
+```
+SELECT category, FLOOR(AVG(p.price)) FROM orders o
+JOIN products p ON p.product_id = o.product_id
+GROUP BY p.category;
+```
+
+![image](https://github.com/MelnikovMatveu/db_practice/assets/145557573/9f46f931-b5a7-48f8-ac4a-e04c76ce1c78)
