@@ -50,3 +50,20 @@ create table orderd (
 ```
 
 
+
+
+```
+create table profile (
+	id bigint primary key ,
+	users_id INT ,
+	basket_id INT,
+	orders_id INT 
+)
+```
+
+
+
+```
+
+```
+
