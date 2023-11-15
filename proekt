@@ -27,5 +27,22 @@ create table basket (
 
 
 ```
+create table users (
+	id bigint primary key ,
+	login varchar ,
+	passvord TEXT,
+	email varchar 
+)
+```
+
 
 ```
+create table orderd (
+	id bigint primary key ,
+	product TEXT ,
+	price float,
+	pickup_point_id INT 
+)
+```
+
+
