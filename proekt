@@ -1,0 +1,26 @@
+
+
+```
+create table Products (
+	id bigint primary key ,
+	name varchar not null ,
+	price float
+)
+```
+
+
+```
+create table pickup_point (
+	id bigint primary key ,
+	points TEXT ,
+	delivery DATE 
+)
+```
+
+
+```
+
+```
+
+
+
