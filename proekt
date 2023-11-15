@@ -41,7 +41,7 @@ create table users (
 
 
 ```
-create table orderd (
+create table orders (
 	id bigint primary key ,
 	product TEXT ,
 	price float,
@@ -64,6 +64,11 @@ create table profile (
 
 
 ```
-
+create table checks (
+	id bigint primary key ,
+	Sum_of_order float,
+	order_id INT,
+	product_id INT
+)
 ```
 
