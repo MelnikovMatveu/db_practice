@@ -98,3 +98,14 @@ insert into products values(19, 'dzbdba', 56.66);
 insert into products values(20, 'kjtk', 567.63);
 insert into products values(21, 'ndehy', 56);
 ```
+
+
+
+```
+insert into pickup_point values (1, 'ул. Ленина 44', '2022-01-08 13:39');
+insert into pickup_point values (2, 'ул. Ленина 44', '2022-02-08 11:49');
+insert into pickup_point values (3, 'ул. Ленина 44', '2022-07-03 13:29');
+insert into pickup_point values (4, 'ул. Долгова 56', '2022-02-04 15:33');
+insert into pickup_point values (5, 'ул. Ленина 44', '2022-01-08 13:23');
+insert into pickup_point values (6, 'ул. Ленина 44', '2022-01-06 16:29');
+```
