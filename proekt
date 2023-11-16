@@ -72,3 +72,29 @@ create table checks (
 )
 ```
 
+
+
+
+```
+insert into products values (1, 'tablet', 120.99);
+insert into products values (2, 'video card', 500);
+insert into products values(3, 'chair', 10);
+insert into products values(4, 'armchair', 50.69);
+insert into products values(5, 'telephone', 649.49);
+insert into products values(6, 'mug', 3.57);
+insert into products values(7, 'zsc', 84);
+insert into products values(8, 'vdvdsv', 39);
+insert into products values(9, 'dvsvsd', 42);
+insert into products values(10, 'ngfdb', 94);
+insert into products values(11, 'dfbdz', 76);
+insert into products values(12, 'zfbzzf', 45);
+insert into products values(13, 'bzfb', 45);
+insert into products values(14, 'fbzdb', 37);
+insert into products values(15, 'zbzb', 86);
+insert into products values(16, 'zbfbb', 23);
+insert into products values(17, 'dbzbfb', 73);
+insert into products values(18, 'zdbb', 46);
+insert into products values(19, 'dzbdba', 56.66);
+insert into products values(20, 'kjtk', 567.63);
+insert into products values(21, 'ndehy', 56);
+```
