@@ -2,7 +2,7 @@
 
 
 create table Products (
-	id bigint primary key ,
+	id INT PRIMARY KEY,
 	name varchar not null ,
 	price float
 );
@@ -10,7 +10,7 @@ create table Products (
 
 
 create table pickup_point (
-	id bigint primary key ,
+	id INT PRIMARY KEY,
 	points TEXT ,
 	delivery DATE 
 );
@@ -18,7 +18,7 @@ create table pickup_point (
 
 
 create table basket (
-	id bigint primary key ,
+	id INT PRIMARY KEY,
 	product_id INT
 );
 
@@ -29,10 +29,10 @@ create table basket (
 
 
 create table users (
-	id bigint primary key ,
-	login varchar ,
-	passvord TEXT,
-	email varchar 
+	id INT PRIMARY KEY,
+	username TEXT ,
+	email varchar (64),
+        address VARCHAR(128)
 );
 
 
@@ -53,7 +53,7 @@ CREATE TABLE orders (
 
 
 create table profile (
-	id bigint primary key ,
+	id INT PRIMARY KEY,
 	users_id INT ,
 	basket_id INT,
 	orders_id INT 
@@ -64,7 +64,7 @@ create table profile (
 
 
 create table checks (
-	id bigint primary key ,
+	id INT PRIMARY KEY,
 	Sum_of_order float,
 	order_id INT,
 	product_id INT
@@ -115,24 +115,38 @@ insert into pickup_point values (6, 'ул. Ленина 44', '2022-01-06 16:29')
 
 INSERT INTO orders (id, user_id, date, price)
 VALUES
-    (1, 1, '2023-02-01', 120.99);
-    (2, 2, '2023-02-02', 500);
-    (3, 3, '2023-02-03', 10);
-    (4, 4, '2023-02-04', 50.69);
-    (5, 5, '2023-02-05', 649.49);
-    (6, 6, '2023-02-06',  649.49);
-    (7, 7, '2023-02-07', 75.99);
-    (8, 8, '2023-02-08', 56.66);
-    (9, 9, '2023-02-09', 9.99);
-    (10, 10, '2023-02-10', 75.99);
-    (11, 4, '2023-02-11', 35.50);
-    (12, 6, '2023-02-12', 35.50);
-    (13, 6, '2023-02-13', 86);
-    (14, 7, '2023-02-14', 86);
-    (15, 3, '2023-02-15', 2.59);
-    (16, 3, '2023-02-16', 9.99);
-    (17, 8, '2023-02-17', 73.56);
-    (18, 9, '2023-02-18', 84);
-    (19, 3, '2023-02-19', 5.58);
-    (20, 2, '2023-02-20', 46);
+    (1, 1, '2023-02-01', 120.99),
+    (2, 2, '2023-02-02', 500),
+    (3, 3, '2023-02-03', 10),
+    (4, 4, '2023-02-04', 50.69),
+    (5, 5, '2023-02-05', 649.49),
+    (6, 6, '2023-02-06',  649.49),
+    (7, 7, '2023-02-07', 75.99),
+    (8, 8, '2023-02-08', 56.66),
+    (9, 9, '2023-02-09', 9.99),
+    (10, 10, '2023-02-10', 75.99),
+    (11, 4, '2023-02-11', 35.50),
+    (12, 6, '2023-02-12', 35.50),
+    (13, 6, '2023-02-13', 86),
+    (14, 7, '2023-02-14', 86),
+    (15, 3, '2023-02-15', 2.59),
+    (16, 3, '2023-02-16', 9.99),
+    (17, 8, '2023-02-17', 73.56),
+    (18, 9, '2023-02-18', 84),
+    (19, 3, '2023-02-19', 5.58),
+    (20, 2, '2023-02-20', 46),
     (21, 10, '2023-02-20', 2.59);
+
+
+INSERT INTO users (id, username, email, address)
+VALUES 
+    (1, 'ИванИванов', 'ivan@example.com', 'ул. Ленина, 1'),
+    (2, 'ДарьяВерхова', 'dariaverkhova@example.com', 'ул. Ленина, 46'),
+    (3, 'НиколайЗлотов', 'alexeyivanovich@example.com', 'ул. Декабристов, 11'),
+    (4, 'АннастасияТихова', 'annastasiatikhova@example.com', 'ул. Пушкина, 15'),
+    (5, 'ЕвгенияНокина', 'evgeniyanokina@example.com', 'ул. Декабристов, 15'),
+    (6, 'АлексейМирнов', 'alexeymirnov@example.com', 'ул. Советская, 7'),
+    (7, 'ТинаЛитова', 'tinalitova@example.com', 'ул. Володарского, 9'),
+    (8, 'ЯнаНиколаева', 'yananikolaeva@example.com', 'пр. Декабристов, 45'),
+    (9, 'ЕгорТарин', 'egortarin@example.com', 'ул. Гагарина, 30'),
+    (10, 'АлександраНиколаева', 'alexandranikolaeva@example.com', 'ул. Пушкина, 50');
