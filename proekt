@@ -38,7 +38,7 @@ CREATE TABLE orders (
     user_id INT,
     date DATE,
     price FLOAT,
-    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
