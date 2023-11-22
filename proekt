@@ -17,12 +17,6 @@ create table pickup_point (
 
 
 
-create table basket (
-	id INT PRIMARY KEY,
-	product_id INT
-);
-
-
 
 
 
