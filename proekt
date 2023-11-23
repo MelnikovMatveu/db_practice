@@ -3,7 +3,7 @@
 
 create table Products (
 	id INT PRIMARY KEY,
-	name varchar not null ,
+	name text,
 	price float
 );
 
