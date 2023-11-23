@@ -3,7 +3,6 @@ create table shop (
 	name_shop TEXT
 );
 
-
 insert into shop values (1, 'Fanastik');
 insert into shop values (2, 'Qveq');
 insert into shop values (3, 'Electronik');
@@ -14,14 +13,13 @@ insert into shop values (5, 'Tools');
 
 
 
+
+
 create table Products (
 	id INT PRIMARY KEY,
 	name text,
 	price float
 );
-
-
-
 
 insert into products values (1, 'tablet', 120.99, 0.6);
 insert into products values (2, 'video card', 500, 1);
@@ -50,6 +48,7 @@ insert into products values(21, 'calendar', 2.59, 0.4);
 
 
 
+
 create table pickup_point (
 	id INT PRIMARY KEY,
 	points TEXT ,
@@ -68,12 +67,73 @@ insert into pickup_point values (6, 'ул. Ленина 44', '2022-01-06 16:29')
 
 
 
+
+
 create table users (
 	id INT PRIMARY KEY,
 	username TEXT ,
 	email varchar (64),
         address VARCHAR(128)
 );
+
+INSERT INTO users (id, username, email, address)
+VALUES 
+    (1, 'ИванИванов', 'ivan@example.com', 'ул. Ленина, 1'),
+    (2, 'ДарьяВерхова', 'dariaverkhova@example.com', 'ул. Ленина, 46'),
+    (3, 'НиколайЗлотов', 'alexeyivanovich@example.com', 'ул. Декабристов, 11'),
+    (4, 'АннастасияТихова', 'annastasiatikhova@example.com', 'ул. Пушкина, 15'),
+    (5, 'ЕвгенияНокина', 'evgeniyanokina@example.com', 'ул. Декабристов, 15'),
+    (6, 'АлексейМирнов', 'alexeymirnov@example.com', 'ул. Советская, 7'),
+    (7, 'ТинаЛитова', 'tinalitova@example.com', 'ул. Володарского, 9'),
+    (8, 'ЯнаНиколаева', 'yananikolaeva@example.com', 'пр. Декабристов, 45'),
+    (9, 'ЕгорТарин', 'egortarin@example.com', 'ул. Гагарина, 30'),
+    (10, 'АлександраНиколаева', 'alexandranikolaeva@example.com', 'ул. Пушкина, 50');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table basket (
+	id INT PRIMARY KEY,
+	products_id INT	
+);
+
+INSERT INTO basket (id, products_id)
+VALUES
+(1, 4),
+(2, 8),
+(3, 6);
+
+
+
+
+
+create table basket_details (
+	id INT PRIMARY KEY,
+	basket_id INT,
+	product_id INT,
+	amount float
+);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -113,40 +173,6 @@ create table checks (
 
 
 
-
-
-
-
-create table basket (
-	id INT PRIMARY KEY,
-	products_id INT,
-	
-);
-
-
-
-
-
-
-
-
-
-
-INSERT INTO users (id, username, email, address)
-VALUES 
-    (1, 'ИванИванов', 'ivan@example.com', 'ул. Ленина, 1'),
-    (2, 'ДарьяВерхова', 'dariaverkhova@example.com', 'ул. Ленина, 46'),
-    (3, 'НиколайЗлотов', 'alexeyivanovich@example.com', 'ул. Декабристов, 11'),
-    (4, 'АннастасияТихова', 'annastasiatikhova@example.com', 'ул. Пушкина, 15'),
-    (5, 'ЕвгенияНокина', 'evgeniyanokina@example.com', 'ул. Декабристов, 15'),
-    (6, 'АлексейМирнов', 'alexeymirnov@example.com', 'ул. Советская, 7'),
-    (7, 'ТинаЛитова', 'tinalitova@example.com', 'ул. Володарского, 9'),
-    (8, 'ЯнаНиколаева', 'yananikolaeva@example.com', 'пр. Декабристов, 45'),
-    (9, 'ЕгорТарин', 'egortarin@example.com', 'ул. Гагарина, 30'),
-    (10, 'АлександраНиколаева', 'alexandranikolaeva@example.com', 'ул. Пушкина, 50');
-
-
-
 INSERT INTO orders (id, user_id, date, price)
 VALUES
     (1, 1, '2023-02-01', 120.99),
@@ -170,3 +196,9 @@ VALUES
     (19, 3, '2023-02-19', 5.58),
     (20, 2, '2023-02-20', 46),
     (21, 10, '2023-02-20', 2.59);
+
+
+
+
+
+
