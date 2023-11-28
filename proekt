@@ -101,6 +101,24 @@ VALUES
 
 
 
+create table pickup_point (
+	id INT PRIMARY KEY,
+	warehouse_name TEXT ,
+	storage_capacity float
+);
+
+
+
+insert into pickup_point values (1, 'ул. Ленина 44', 1000);
+insert into pickup_point values (2, 'ул. Ленина 105', 1000);
+insert into pickup_point values (3, 'ул. Долгова 56', 1000);
+insert into pickup_point values (4, 'ул. Озёрная 12', 1000);
+insert into pickup_point values (5, 'ул. Южная 98', 1000);
+insert into pickup_point values (6, 'ул. Перова 34', 1000);
+
+
+
+
 
 
 create table basket (
@@ -199,6 +217,42 @@ VALUES
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+SELECT warehouse_name, MAX(storage_capacity) AS max_capacity
+FROM pickup_point
+GROUP BY warehouse_name
+ORDER BY max_capacity DESC;
+```
 
 
 
