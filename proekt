@@ -121,6 +121,34 @@ insert into pickup_point values (6, 'ул. Перова 34', 1000);
 
 
 
+
+
+
+
+
+create table orders (
+	id INT PRIMARY KEY,
+	orderSum float,
+	price float,
+	users INT,
+	FOREIGN KEY (id) REFERENCES users(id)
+);
+
+
+
+
+create table orders (
+	id INT PRIMARY KEY,
+	orderSum float,
+	price float,
+	pickup_point INT,
+	FOREIGN KEY (pickup_point) REFERENCES pickup_point(id)
+);
+
+
+
+
+
 create table basket (
 	id INT PRIMARY KEY,
 	products_id INT	
@@ -176,6 +204,19 @@ create table profile (
 	basket_id INT,
 	orders_id INT 
 );
+
+
+
+
+
+create table orderDetails (
+	id INT PRIMARY KEY,
+	orders INT,
+	FOREIGN KEY (orders) REFERENCES orders(id),
+	products INT,
+	FOREIGN KEY (products) REFERENCES products(id)
+);
+
 
 
 
