@@ -127,14 +127,6 @@ insert into pickup_point values (6, 'ул. Перова 34', 1000);
 
 
 
-create table orders (
-	id INT PRIMARY KEY,
-	orderSum float,
-	price float,
-	users INT,
-	FOREIGN KEY (id) REFERENCES users(id)
-);
-
 
 
 
@@ -183,7 +175,16 @@ create table basket_details (
 
 
 
-
+create table checks (
+	id INT PRIMARY KEY,
+	Sum_order float,
+	shop_id INT,
+	FOREIGN KEY (shop_id) REFERENCES shop(id),
+	orders_id INT,
+	FOREIGN KEY (orders_id) REFERENCES orders(id),
+	products_id INT,
+	FOREIGN KEY (products_id) REFERENCES products(id)
+);
 
 
 
@@ -197,6 +198,23 @@ CREATE TABLE orders (
     price FLOAT,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+
+
+
+
+
+create table orderdetails (
+	id INT PRIMARY KEY,
+	orders_id INT,
+	FOREIGN KEY (orders_id) REFERENCES orders(id),
+	products_id INT,
+	FOREIGN KEY (products_id) REFERENCES products(id)
+);
+
+
+
+
 
 
 ```
@@ -225,25 +243,13 @@ create table profile (
 
 
 
-create table orderDetails (
-	id INT PRIMARY KEY,
-	orders INT,
-	FOREIGN KEY (orders) REFERENCES orders(id),
-	products INT,
-	FOREIGN KEY (products_id) REFERENCES products(id)
-);
 
 
 
 
 
 
-create table checks (
-	id INT PRIMARY KEY,
-	Sum_of_order float,
-	order_id INT,
-	product_id INT
-);
+
 
 
 
