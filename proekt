@@ -1,5 +1,5 @@
 create table shop (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	name_shop TEXT
 );
 
@@ -16,7 +16,7 @@ insert into shop values (5, 'Tools');
 
 
 create table Products (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	name text,
 	price float,
         volume float
@@ -51,7 +51,7 @@ insert into products values(21, 'calendar', 2.59, 0.4);
 
 
 create table pickup_point (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	points TEXT ,
 	delivery DATE 
 );
@@ -71,7 +71,7 @@ insert into pickup_point values (6, 'ул. Ленина 44', '2022-01-06 16:29')
 
 
 create table users (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	username TEXT ,
 	email varchar (64),
         address VARCHAR(128)
@@ -102,20 +102,20 @@ VALUES
 
 
 
-create table pickup_point (
-	id INT PRIMARY KEY,
+create table pickuppoint (
+	id BIGINT PRIMARY KEY,
 	warehouse_name TEXT ,
 	storage_capacity float
 );
 
 
 
-insert into pickup_point values (1, 'ул. Ленина 44', 1000);
-insert into pickup_point values (2, 'ул. Ленина 105', 1000);
-insert into pickup_point values (3, 'ул. Долгова 56', 1000);
-insert into pickup_point values (4, 'ул. Озёрная 12', 1000);
-insert into pickup_point values (5, 'ул. Южная 98', 1000);
-insert into pickup_point values (6, 'ул. Перова 34', 1000);
+insert into pickuppoint values (1, 'ул. Ленина 44', 1000);
+insert into pickuppoint values (2, 'ул. Ленина 105', 1000);
+insert into pickuppoint values (3, 'ул. Долгова 56', 1000);
+insert into pickuppoint values (4, 'ул. Озёрная 12', 1000);
+insert into pickuppoint values (5, 'ул. Южная 98', 1000);
+insert into pickuppoint values (6, 'ул. Перова 34', 1000);
 
 
 
@@ -131,7 +131,7 @@ insert into pickup_point values (6, 'ул. Перова 34', 1000);
 
 
 create table orders (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	orderSum float,
 	price float,
 	pickuppoint_id INT,
@@ -143,7 +143,7 @@ create table orders (
 
 
 create table basket (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	products_id INT,
 	FOREIGN KEY (products_id) REFERENCES products(id),
 	price float
@@ -217,17 +217,18 @@ create table orderdetails (
 
 
 
-```
+
 create table profile (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	users_id INT ,
-	FOREIGN KEY (user_id) REFERENCES users(id),
+	constraint fk_user_users_id FOREIGN KEY (users_id) REFERENCES users(id),
 	basket_id INT,
-	FOREIGN KEY (basket_id) REFERENCES (id),
+	constraint fk_basket_basket_id FOREIGN KEY (basket_id) REFERENCES basket(id),
 	orders_id INT ,
-	FOREIGN KEY (orders_id) REFERENCES orders(id)
+	constraint fk_orders_orders_id FOREIGN KEY (orders_id) REFERENCES orders(id)
 );
-```
+
+
 
 
 
@@ -277,7 +278,6 @@ VALUES
     (19, 3, '2023-02-19', 5.58),
     (20, 2, '2023-02-20', 46),
     (21, 10, '2023-02-20', 2.59);
-
 
 
 
