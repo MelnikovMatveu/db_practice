@@ -18,7 +18,8 @@ insert into shop values (5, 'Tools');
 create table Products (
 	id INT PRIMARY KEY,
 	name text,
-	price float
+	price float,
+        volume float
 );
 
 insert into products values (1, 'tablet', 120.99, 0.6);
@@ -141,8 +142,8 @@ create table orders (
 	id INT PRIMARY KEY,
 	orderSum float,
 	price float,
-	pickup_point INT,
-	FOREIGN KEY (pickup_point) REFERENCES pickup_point(id)
+	pickuppoint_id INT,
+	FOREIGN KEY (pickuppoint_id) REFERENCES pickuppoint(id)
 );
 
 
@@ -151,7 +152,9 @@ create table orders (
 
 create table basket (
 	id INT PRIMARY KEY,
-	products_id INT	
+	products_id INT,
+	FOREIGN KEY (products_id) REFERENCES products(id),
+	price float
 );
 
 INSERT INTO basket (id, products_id)
@@ -167,7 +170,9 @@ VALUES
 create table basket_details (
 	id INT PRIMARY KEY,
 	basket_id INT,
-	product_id INT,
+	FOREIGN KEY (basket_id) REFERENCES basket(id),
+	products_id INT,
+	FOREIGN KEY (products_id) REFERENCES products(id),
 	amount float
 );
 
@@ -194,6 +199,17 @@ CREATE TABLE orders (
 );
 
 
+```
+create table profile (
+	id INT PRIMARY KEY,
+	users_id INT ,
+	FOREIGN KEY (user_id) REFERENCES users(id),
+	basket_id INT,
+	FOREIGN KEY (basket_id) REFERENCES (id),
+	orders_id INT ,
+	FOREIGN KEY (orders_id) REFERENCES orders(id)
+);
+```
 
 
 
@@ -214,7 +230,7 @@ create table orderDetails (
 	orders INT,
 	FOREIGN KEY (orders) REFERENCES orders(id),
 	products INT,
-	FOREIGN KEY (products) REFERENCES products(id)
+	FOREIGN KEY (products_id) REFERENCES products(id)
 );
 
 
