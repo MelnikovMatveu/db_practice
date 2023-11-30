@@ -160,7 +160,7 @@ VALUES
 
 
 create table basket_details (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	basket_id INT,
 	FOREIGN KEY (basket_id) REFERENCES basket(id),
 	products_id INT,
@@ -176,7 +176,7 @@ create table basket_details (
 
 
 create table checks (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	Sum_order float,
 	shop_id INT,
 	FOREIGN KEY (shop_id) REFERENCES shop(id),
@@ -191,21 +191,12 @@ create table checks (
 
 
 
-CREATE TABLE orders (
-    id INT PRIMARY KEY,
-    user_id INT,
-    date DATE,
-    price FLOAT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
-
 
 
 
 
 create table orderdetails (
-	id INT PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	orders_id INT,
 	FOREIGN KEY (orders_id) REFERENCES orders(id),
 	products_id INT,
@@ -230,15 +221,6 @@ create table profile (
 
 
 
-
-
-
-create table profile (
-	id INT PRIMARY KEY,
-	users_id INT ,
-	basket_id INT,
-	orders_id INT 
-);
 
 
 
