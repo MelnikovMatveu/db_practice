@@ -1,3 +1,4 @@
+```
 create table shop (
 	id BIGINT PRIMARY KEY,
 	name_shop TEXT
@@ -193,16 +194,6 @@ create table shop_product (
 
 
 
-CREATE TABLE TRIGGER (
-    status VARCHAR(50)
-);
-
-INSERT INTO TRIGGER (status)
-VALUES
-    ('доставлен'),
-    ('в сборке'),
-    ('отменен');
-
 
 
 
@@ -234,3 +225,4 @@ with order_sum AS (
 	GROUP BY od.orders_id
 )
 update orders SET ordersum = (SELECT sum from order_sum WHERE orders_id = orders.id)
+```
