@@ -79,7 +79,21 @@ VALUES
 
 
 
+CREATE TABLE basket (
+    id SERIAL PRIMARY KEY,
+    product_id BIGINT,
+    price FLOAT,
+    user_id BIGINT,
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
+INSERT INTO basket (product_id, price, user_id) VALUES
+(1, 120.99, 1),
+(2, 500, 2),
+(3, 10, 3),
+(4, 50.69, 4),
+(5, 649.49, 5);
 
 
 
