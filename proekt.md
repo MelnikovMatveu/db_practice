@@ -226,3 +226,78 @@ with order_sum AS (
 )
 update orders SET ordersum = (SELECT sum from order_sum WHERE orders_id = orders.id)
 ```
+
+
+
+## ТРИГГЕРЫ
+
+```
+CREATE OR REPLACE FUNCTION update_order_sum()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE orders
+    SET orderSum = (
+        SELECT SUM(od.amount * p.price)
+        FROM orderdetails od
+        JOIN products p ON p.id = od.products_id
+        WHERE od.orders_id = NEW.orders_id
+    )
+    WHERE id = NEW.orders_id;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_order_sum_trigger
+AFTER INSERT OR UPDATE ON orderdetails
+FOR EACH ROW EXECUTE FUNCTION update_order_sum();
+
+
+Этот триггер обновляет сумму заказа в таблице orders после добавления новых деталей заказа.
+```
+
+
+```
+CREATE OR REPLACE FUNCTION update_order_date()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE orders
+    SET order_date = CURRENT_DATE
+    WHERE id = NEW.orders_id AND NEW.amount > 0;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_order_date_trigger
+AFTER INSERT OR UPDATE ON orderdetails
+FOR EACH ROW EXECUTE FUNCTION update_order_date();
+
+
+Этот триггер обновляет дату заказа в таблице orders при изменении суммы заказа (если сумма больше нуля).
+
+
+```
+
+
+```
+CREATE OR REPLACE FUNCTION update_shop_product_price()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE shop_product
+    SET price = NEW.price
+    WHERE product_id = NEW.id;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_shop_product_price_trigger
+AFTER UPDATE ON products
+FOR EACH ROW EXECUTE FUNCTION update_shop_product_price();
+
+Этот триггер следит за изменениями в таблице products и автоматически обновляет цены в таблице shop_product для соответствующих продуктов.
+
+```
+
+
